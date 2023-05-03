@@ -59,8 +59,8 @@ def predict(img):
     # Extracting shape and color features from image
     ncl_detect, error, ftrs = feature_extractor(img=img, min_area=100)
     # saving image feature vector to memory and appending to x and y lists
-    mn= np.load(r'D:\WBC_Feature-main\mn.npy')
-    mx= np.load(r'D:\WBC_Feature-main\mx.npy')
+    mn= np.load(r'mn.npy')
+    mx= np.load(r'mx.npy')
     ftrs = (ftrs - mn)/(mx - mn)
     with open('train_model.pkl', 'rb') as f:
         clf = pickle.load(f)
